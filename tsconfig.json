@@ -1,4 +1,4 @@
-{
+  {
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
@@ -11,12 +11,15 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
+    "types": ["gapi","gapi.auth2"],
+    "skipLibCheck": true,
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
       "es2018",
-      "dom"
+      "dom",
+      "dom.iterable"
     ]
   },
   "angularCompilerOptions": {

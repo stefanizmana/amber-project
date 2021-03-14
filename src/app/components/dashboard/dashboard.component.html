@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<h1><a href="/dashboard">Dashboard</a></h1>
+<body>
+
+<mat-grid-list cols="3">
+  <table matSort (matSortChange)="sortData($event)">
+    <tr>
+      <th mat-sort-header="sold_price">Sort by price</th>
+    </tr>
+  <mat-grid-tile class="list" *ngFor="let tile of sortedData || (tiles$ | async)">
+    <mat-list>
+      <mat-card class="example-card" (click)="onClickItem(tile.id)">
+        <mat-card-header>
+          <mat-card-title [innerHTML]="tile.name"></mat-card-title>
+          <mat-card-subtitle [innerHTML]="tile.type + ' price ' + tile.sold_price + ' ' + tile.currency"></mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-sm-image [src]="tile.images[0]" alt="properties">
+        <mat-card-content>
+          <p [innerHTML]="tile.description">
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-list>
+  </mat-grid-tile>
+  </table>
+</mat-grid-list>
+</body>
+</html>

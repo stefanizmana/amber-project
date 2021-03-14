@@ -1,0 +1,26 @@
+<a href="/dashboard">
+  <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+    <mat-icon>home</mat-icon>
+  </button>
+</a>
+<h1>Display Property Details</h1>
+
+<div class="">
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2 [innerHTML]="name$ | async"></h2>
+      <div *ngFor="let item of (images$ | async)">
+        <img class="fakeimg" [src]="item" alt="properties">
+      </div>
+      <p>Price: {{soldPrice$ | async}} </p>
+      <p [innerHTML]="description$ | async"></p>
+      <p>Location: {{latitude$ | async}} {{ longitude$ | async}}
+        <agm-map [latitude]="latitude$ | async" [longitude]="longitude$ | async">
+          <agm-marker [latitude]="latitude$ | async" [longitude]="longitude$ | async"></agm-marker>
+        </agm-map>
+      </p>
+    </div>
+  </div>
+</div>
+</div>

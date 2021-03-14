@@ -1,10 +1,21 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
+import { Environment } from './type';
 
-export const environment = {
-  production: false
+export let environment: Environment = {
+  assetsStaticI18n: '', assetsStaticItemName: '', cdnPath: '',
+  production: false,
+  mockProviders: [],
+
+  isEnv: 'dev',
+  protocol: 'http',
+  basePath: 'localhost:8090'
 };
+
+export const setEnvironment = (env: Environment | null) => {
+  if (env) {
+    environment = env;
+  }
+};
+
 
 /*
  * For easier debugging in development mode, you can import the following file
